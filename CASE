@@ -1,0 +1,57 @@
+-- CASE Syntax:==> (Like if else Statement)
+
+SELECT a,
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE some_other_result
+END
+from Test;
+
+
+--============================================================
+
+--Example 01:---------------------------------------
+
+
+select case(City)
+when 'Tripura' then 'TP'
+when 'Kolkata' then 'KK'
+else 'No Idea'
+end
+from student
+
+
+--Example 02:----------------------------------------
+
+-- customer_id  ==> is a column
+
+-- customer  ==> is a Table
+
+select customer_id,
+CASE
+    WHEN (customer_id <= 100) THEN 'Premium'
+    WHEN (customer_id between 100 and 200) THEN 'Plus'
+    ELSE 'normal'
+END AS customer_class      -- Its a Alias ==> It will create a New Column
+from customer
+
+
+--=====================================================================================
+--CASE Expression:==> Example:--------------
+
+
+-- rental_rate  ==> is a column
+
+-- film  ==> is a Table
+
+
+select rental_rate,
+CASE rental_rate
+    WHEN 0.99 THEN 1
+    WHEN 2.01 THEN 2
+    ELSE 0
+END 
+from film
+
